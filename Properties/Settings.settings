@@ -1,0 +1,51 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TCDefectIntegration.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DefectType" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">New Feature</Value>
+    </Setting>
+    <Setting Name="DefectAssignee" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DefectPriority" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Minor</Value>
+    </Setting>
+    <Setting Name="DefectStatus" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">New</Value>
+    </Setting>
+    <Setting Name="CustomDefectProperties" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DefectComponents" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="User" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="URL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://jira.tricentis.com/browse</Value>
+    </Setting>
+    <Setting Name="SoapURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://jira.tricentis.com/rpc/soap/jirasoapservice-v2?wsdl</Value>
+    </Setting>
+    <Setting Name="DefectProject" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TOSCA</Value>
+    </Setting>
+    <Setting Name="ProxyURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">192.168.1.23:8080</Value>
+    </Setting>
+    <Setting Name="ProxyUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ProxyPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UseProxy" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
