@@ -1,19 +1,14 @@
 
-TCDefectIntegration_Jira (Soap)
+Tosca Commander DefectIntegration for Jira (using Soap)
 ===========================
------------
-**Table of Content**
 
-[TOC]
-
------------
-The TCDefectIntegration_Jira (Soap) is an additional component for the Tosca Testsuite, which enables you to integrate Jira into Tosca. It allows Jira Tickets to be opened with Tosca Commander, new tickets can be created and existing tickets can be synchronized.
+The Defect Integration for Jira is an additional component for the Tosca Testsuite, which enables you to integrate Jira into Tosca using Jira's Soap interface. It allows Jira Tickets to be opened with Tosca Commander, new tickets can be created and existing tickets can be synchronized.
 
 ----------
 
-<i class="icon-file">Architecture
+Architecture
 -------------
-The TCDefectIntegration_Jira uses Tosca's built-in SimpleDefectTracking interface, which provides the tasks for **create/open/update** defects on ExecutionEntries, and creates an xml file within the workspace directory including additional information for the Integration.  The integration uses the following interface: https://developer.atlassian.com/jiradev/support/archive/jira-rpc-services/creating-a-jira-soap-client
+This integration uses Tosca's built-in SimpleDefectTracking interface, which provides the tasks for **create/open/update** defects on ExecutionEntries, and creates an xml file within the workspace directory including additional information for the integration. The integration uses the following interface: https://developer.atlassian.com/jiradev/support/archive/jira-rpc-services/creating-a-jira-soap-client
 
 
 ```sequence
@@ -28,7 +23,7 @@ TCDefectIntegration_Jira->SimpleDefectIntegrationAddin:return Id/update result
 SimpleDefectIntegrationAddin->Tosca:return Id/update result
 ```
 ----------
-<i class="icon-folder-open"></i>Installation
+Installation
 -------------
 
  - Jira's Webservice must  be enabled and accessible, and the ToscaSimple Defect Tracking AddIn must be installed.
@@ -37,7 +32,7 @@ SimpleDefectIntegrationAddin->Tosca:return Id/update result
 
 ----------
 
-<i class="icon-cog"></i>Configuration
+Configuration
 -------------
 
 **Mandatory properties**
