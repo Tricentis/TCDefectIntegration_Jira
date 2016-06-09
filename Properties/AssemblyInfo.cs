@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle( "TCDefectIntegration" )]
+[assembly: AssemblyTitle( "TCDefectIntegration_Jira" )]
 [assembly: AssemblyDescription( "" )]
 [assembly: AssemblyConfiguration( "" )]
-[assembly: AssemblyCompany( "TRICENTIS Technology & Consulting GmbH" )]
-[assembly: AssemblyProduct( "TCDefectIntegration" )]
-[assembly: AssemblyCopyright( "Copyright © TRICENTIS Technology & Consulting GmbH 2009" )]
+[assembly: AssemblyCompany( "TRICENTIS" )]
+[assembly: AssemblyProduct( "TCDefectIntegration_Jira" )]
+[assembly: AssemblyCopyright( "Copyright © TRICENTIS 2016" )]
 [assembly: AssemblyTrademark( "" )]
 [assembly: AssemblyCulture( "" )]
 

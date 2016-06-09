@@ -3,17 +3,16 @@ using System.Reflection;
 
 namespace TCDefectIntegration {
     internal static class Program {
+
+
         private const string ArgCreateDefect = "create";
-
         private const string ArgOpenDefect = "open";
-
         private const string ArgGetStatesDefect = "getstates";
-
         private const string ArgGetDefectIdInfo = "getdefectidinfo";
 
         private static string ArgProgName {
             get {
-                Assembly thisAssembly = Assembly.GetExecutingAssembly();
+                Assembly thisAssembly = Assembly.GetExecutingAssembly();                
                 return thisAssembly.ManifestModule.Name;
             }
         }
@@ -24,11 +23,13 @@ namespace TCDefectIntegration {
             Console.WriteLine(ArgProgName + " " + ArgOpenDefect + " <dataFilePath> OR");
             Console.WriteLine(ArgProgName + " " + ArgGetStatesDefect + " <dataFilePath> OR");
             Console.WriteLine(ArgProgName + " " + ArgGetDefectIdInfo + " <dataFilePath>");
-
+            
             return -1;
         }
 
-        private static int Main( string[] args ) {
+        [STAThread]
+        private static int Main( string[] args ) {            
+
             IntegrationManager integrationManager = new IntegrationManager();
 
             if (args.Length != 2) {
@@ -42,7 +43,7 @@ namespace TCDefectIntegration {
                     return integrationManager.OpenDefect(args[1]);
                 case ArgGetStatesDefect:
                     return integrationManager.GetStatesForDefects(args[1]);
-                case ArgGetDefectIdInfo:
+                case ArgGetDefectIdInfo: // is not used anymore in Tosca
                     return integrationManager.GetInfosForDefects(args[1]);
                 default:
                     return ShowUsage();

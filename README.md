@@ -1,14 +1,21 @@
-
-Tosca Commander DefectIntegration for Jira (using Soap)
+Tosca Commander DefectIntegration for Jira (using Soap & Restful)
 ===========================
 
-The Defect Integration for Jira is an additional component for the Tosca Testsuite, which enables you to integrate Jira into Tosca using Jira's Soap interface. It allows Jira Tickets to be opened with Tosca Commander, new tickets can be created and existing tickets can be synchronized.
+The Defect Integration for Jira is an additional component for the Tosca Testsuite, which enables you to integrate Jira into Tosca using Jira's Soap or Rest interface. It allows Jira Tickets to be opened with Tosca Commander, new tickets can be created and existing tickets can be synchronized.
 
 ----------
+Version History
+-------------
+Added support for Restful interface and attachments. Restful interface is required for Jira 7 and later.
+New configuration parameters UseRestfulConnection,UseManualDefectCreationWindow,RestfulURL,JiraCreateIssueURL
 
+
+----------
 Architecture
 -------------
-This integration uses Tosca's built-in SimpleDefectTracking interface, which provides the tasks for **create/open/update** defects on ExecutionEntries, and creates an xml file within the workspace directory including additional information for the integration. The integration uses the following interface: https://developer.atlassian.com/jiradev/support/archive/jira-rpc-services/creating-a-jira-soap-client
+This integration uses Tosca's built-in SimpleDefectTracking interface, which provides the tasks for **create/open/update** defects on ExecutionEntries, and creates an xml file within the workspace directory including additional information for the integration. 
+The integration uses the following interfaces from jira: https://developer.atlassian.com/jiradev/support/archive/jira-rpc-services/creating-a-jira-soap-client (soap)
+														 https://developer.atlassian.com/jiradev/jira-apis/jira-rest-apis (rest)
 
 
 ```sequence
@@ -28,7 +35,7 @@ Installation
 
  - Jira's Webservice must  be enabled and accessible, and the ToscaSimple Defect Tracking AddIn must be installed.
  - The TCDefectIntegration.exe and TCDefectIntegration.exe.config have to be deployed to **%TRICENTIS_HOME%\ToscaCommander**.
- 
+ - There is a 3rd party dependency, Newtonsoft.Json.dll must be in **%TRICENTIS_HOME%\libs**, which is the case with the default Tosca installation (version 9.2).
 
 ----------
 
@@ -42,9 +49,13 @@ The following settings must be specified in the TCDefectIntegration.exe.config f
 Setting     | Description
 --------    | --------------------------------------------------------------
 Url         | A Url to open a Defect is specified here.<br>Example:<br>http://www.mycompany.com/jira/browse
-SoapURL      | A Url to access the Webservice is specified here.<br>Example:<br>http://www.mycompany.com/jira/rpc/soap/jirasoapservice-v2?wsdl
-User|The user name to be used to sign up to Jira is specified here.
-Password|Jira password
+SoapURL     | A Url to access the Webservice is specified here.<br>Example:<br>http://www.mycompany.com/jira/rpc/soap/jirasoapservice-v2?wsdl
+User        |The user name to be used to sign up to Jira is specified here.
+Password    |Jira password
+UseManualDefectCreationWindow | Manual browser window is launched upon issue creation. Standard behaviour when using UseRestfulConnection.
+UseRestfulConnection          | With Jira greater than 7 the SOAP is not supported anymore and RestFulConnection must be used
+RestfulURL                    | Url to the restful service version https://mycompany.atlassian.net/rest/api/2/
+JiraCreateIssueURL            | Url that is loaded when the manual browser window is launched, default is https://mycompany.atlassian.net/secure/CreateIssue!default.jspa
 <br>
 **Using a Proxy**
 
@@ -84,4 +95,11 @@ with values. Individual properties are entered separated by semicolons.
 > The property name can be optionally entered:
 > &lt;ID&gt;=&lt;Value&gt;
 
+
+**Manual creation**
+Depending on the complexity of the custom properties and fields configuration during Issue creation this integration can be configured to create the issue within a browser window.
+This mode is also used when the restful api is chosen.
+
+**Debugging**
+For easier debugging 3 testfiles have been attached to the project to simulate, create/open/update functinoality.
 ----------
